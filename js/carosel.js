@@ -69,22 +69,22 @@ const imagCarosello = [
 
 
 
-for (let i = 0; i < imagCarosello.length; i++ ){
+imagCarosello.forEach ((item) => {
 
-    let objesimo = imagCarosello[i];
+    // let objesimo = imagCarosello[i];
     // console.log(objesimo);
 
 
-    let item = `<div class="item">
-                        <img src="${objesimo.image}">
-                 </div>
-                    <div class="text">
-                        <h1>${objesimo.title}</h1>
-                        <p>${objesimo.text}</p>
-                    </div>`;
+    itemContainer.innerHTML += `<div class="item">
+                                    <img src="${item.image}">
+                                </div>
+                                <div class="text">
+                                    <h1>${item.title}</h1>
+                                    <p>${item.text}</p>
+                                </div>`;
 
-    itemContainer.innerHTML += item;
-}
+    
+})
 
 
 // creata variabile con un valore 0
@@ -119,15 +119,8 @@ function() {
 
 // creata condizione in  cui stabilisco un SE (se activitem (dunque 0) è minore al numero di valori presenti nell'arrey -1 allora si verificherà tale condizione
     if (activeItem == items.length - 1 && itemsText.length - 1) {
-
-
-       
-
         // si va allo step successivo 
-        activeItem = - 1;
-
-
-        
+        activeItem = - 1;  
     }
 
     activeItem++;
@@ -139,10 +132,7 @@ function() {
 
 
 
-
 const indietro = document.getElementById('under');
-
-
 
 
 
@@ -158,7 +148,7 @@ function() {
       activeItem = items.length;
       activeItem = itemsText.length; 
     }
-    
+
     activeItem--;
 
     items[activeItem].classList.add('active');
